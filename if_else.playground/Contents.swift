@@ -27,3 +27,7 @@ else if myAge == 26 {
 else {
     "My age is not 26 and my name is not Cody"
 }
+
+if myName == "Cody" || myAge == 26 {
+    "My name is Cody, my age is 26, or both."
+}
