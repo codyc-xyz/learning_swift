@@ -33,7 +33,7 @@ let names = "Foo" + " " + "Bar"
 // ternary operators
 let age = 30
 let message = age >= 18
-? "You are an adult" :
-"You are not an adult"
+    ? "You are an adult"
+    : "You are not an adult"
 print(message)
 
