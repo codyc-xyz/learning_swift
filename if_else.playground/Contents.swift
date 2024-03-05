@@ -17,3 +17,13 @@ if myAge == 26 {
 else if myAge == 30 {
     "My age is 30"
 }
+
+if myName == "Cody" && myAge == 26 {
+    "My name is \(myName) and my age is \(myAge)"
+}
+else if myAge == 26 {
+    "My age is 26, but my name is not Cody"
+}
+else {
+    "My age is not 26 and my name is not Cody"
+}
