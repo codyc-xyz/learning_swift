@@ -28,3 +28,9 @@ func customMinus(_ v1: Int, _ v2: Int) -> Int {
 }
 
 let customSubtracted = customMinus(24,22)
+
+// discardable result removes need to assign function result to something
+@discardableResult
+func myCustomAdd(_ v1: Int, _ v2: Int) -> Int {
+    return v1 + v2
+}
