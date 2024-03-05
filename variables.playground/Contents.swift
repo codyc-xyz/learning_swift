@@ -6,7 +6,10 @@ import Foundation
 let myName = "Foo"
 let yourName = "Bar"
 
-let names = [
+var names = [
 myName,
 yourName
 ]
+
+names.append("New Name")
+print(names)
