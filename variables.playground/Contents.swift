@@ -12,4 +12,14 @@ yourName
 ]
 
 names.append("New Name")
-print(names)
+
+// class instances (e.g. NSMutable Array) differ from structures (let, var)
+// the below is mutable even though it is instantiated with let
+let oldArray = NSMutableArray(
+    array: [
+        "Foo",
+        "Bar"
+    ]
+)
+oldArray.add("Baz")
+print(oldArray)
