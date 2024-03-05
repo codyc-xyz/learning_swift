@@ -29,8 +29,19 @@ func customMinus(_ v1: Int, _ v2: Int) -> Int {
 
 let customSubtracted = customMinus(24,22)
 
-// discardable result removes need to assign function result to something
+// discardable result removes need to use function result to do something
 @discardableResult
 func myCustomAdd(_ v1: Int, _ v2: Int) -> Int {
     return v1 + v2
 }
+
+// functions can contain their own functions
+// with is external value label
+func doSomethingComplicated(with value: Int) -> Int {
+    func mainLogic(value: Int) -> Int {
+        return value + 2
+    }
+    return mainLogic(value: value + 3)
+}
+
+doSomethingComplicated(with: 30)
