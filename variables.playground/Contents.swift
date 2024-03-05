@@ -1,3 +1,12 @@
-import UIKit
+import Foundation
 
-var greeting = "Hello, playground"
+// let cannot be reassigned
+// var can be reassigned
+
+let myName = "Foo"
+let yourName = "Bar"
+
+let names = [
+myName,
+yourName
+]
