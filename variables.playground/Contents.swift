@@ -25,6 +25,7 @@ let oldArray = NSMutableArray(
         "Bar"
     ]
 )
+// the below works, however reassigning oldArray would not work
 oldArray.add("Baz")
 print(oldArray)
 
