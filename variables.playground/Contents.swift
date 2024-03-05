@@ -32,3 +32,16 @@ print(oldArray)
 var newArray = oldArray
 newArray.add("Bez")
 print(newArray, oldArray)
+
+
+func changeTheArray(_ array: NSArray) {
+    // promoting data type to mutable data type
+    let copy = array as! NSMutableArray
+    // if you call this code, the copy will add the new val even though it is a let due to the class data type promotion
+    copy.add("Lez")
+}
+
+changeTheArray(oldArray)
+// oldArray now contains "Lez"
+print(oldArray)
+
