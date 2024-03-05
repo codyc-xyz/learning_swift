@@ -12,3 +12,9 @@ else if yourAge > myAge {
 else {
     "We are the same age"
 }
+
+let myMothersAge = myAge + 30
+let doubleMyAge = myAge * 2
+
+// three different types of operators in swift
+// 1. Unary Prefix (unary - one val), 2. Unary Postfix, 3. Binary Infix (binary - 2 vals)
