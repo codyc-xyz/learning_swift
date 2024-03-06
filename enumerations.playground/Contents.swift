@@ -66,7 +66,7 @@ if case let .song(_, songName) = withoutYou {
 enum Vehicle {
     case car(manufacturer: String, model: String)
     case bike(manufacturer: String, yearMade: Int)
-    func getManufacturer() -> String {
+    var manufacturer -> String {
         switch self {
             case let .car(manufacturer, _):
                 return manufacturer
@@ -82,5 +82,5 @@ let car = Vehicle.car(manufacturer: "Toyota", model: "X")
 let bike = Vehicle.bike(manufacturer: "HD", yearMade: 1986)
 
 
-car.getManufacturer()
-bike.getManufacturer()
+car.manufacturer
+bike.manufacturer
