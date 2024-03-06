@@ -35,3 +35,18 @@ struct Person2 {
         "\(firstName) \(lastName)"
     }
 }
+
+let fooBar = Person2(firstName: "Foo", lastName: "Bar")
+fooBar.fullName
+
+// structs do not inherently allow mutation - all of the above is immutable
+
+// mutable structure
+
+struct Car {
+    var currentSpeed: Int
+    mutating func drive(speed: Int) {
+        "Driving..."
+        currentSpeed = speed
+    }
+}
