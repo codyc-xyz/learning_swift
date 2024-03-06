@@ -49,3 +49,39 @@ case let .song(artist, songName):
     songName
     break
 }
+
+// grab path from instance
+if case let .wwwUrl(path) = wwwApple {
+    path
+}
+
+// can also ignore values in enum cases
+
+let withoutYou = Shortcut.song(artist: "Symphony X", songName: "Without You")
+
+if case let .song(_, songName) = withoutYou {
+    songName
+}
+
+enum Vehicle {
+    case car(manufacturer: String, model: String)
+    case bike(manufacturer: String, yearMade: Int)
+}
+
+let car = Vehicle.car(manufacturer: "Toyota", model: "X")
+
+let bike = Vehicle.bike(manufacturer: "HD", yearMade: 1986)
+
+func getManufacturer(vehicle: Vehicle) {
+    switch vehicle {
+        case let .car(manufacturer, _):
+            manufacturer
+            break
+        case let .bike(manufacturer, _):
+            manufacturer
+            break
+    }
+}
+
+getManufacturer(vehicle: car)
+getManufacturer(vehicle: bike)
