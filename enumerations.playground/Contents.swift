@@ -37,14 +37,14 @@ let wwwApple = Shortcut.wwwUrl(
 )
 
 switch wwwApple {
-case .fileOrFolder(path: let path, name: let name):
+case let .fileOrFolder(path, name):
     path
     name
     break
-case .wwwUrl(path: let path):
+case let .wwwUrl(path):
     path
     break
-case .song(artist: let artist, songName: let songName):
+case let .song(artist, songName):
     artist
     songName
     break
