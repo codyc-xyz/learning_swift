@@ -66,11 +66,10 @@ if case let .song(_, songName) = withoutYou {
 enum Vehicle {
     case car(manufacturer: String, model: String)
     case bike(manufacturer: String, yearMade: Int)
-    var manufacturer -> String {
+    var manufacturer: String {
         switch self {
-            case let .car(manufacturer, _):
-                return manufacturer
-            case let .bike(manufacturer, _):
+            case let .car(manufacturer, _),
+                let .bike(manufacturer, _):
                 return manufacturer
         }
     }
@@ -84,3 +83,11 @@ let bike = Vehicle.bike(manufacturer: "HD", yearMade: 1986)
 
 car.manufacturer
 bike.manufacturer
+
+// can also have enums with raw values
+
+enum FamilyMember: String {
+    case father = "Dad", mother = "Mom", brother = "Bro", sister = "Sis"
+}
+
+FamilyMember.father.rawValue
