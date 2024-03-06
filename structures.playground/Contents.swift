@@ -63,3 +63,16 @@ let copy = myCar
 myCar.drive(speed: 40)
 copy.currentSpeed
 myCar.currentSpeed
+
+// structures cannot sub-class/inherit from other structures e.g. below does not work
+
+struct LivingThing {
+    init() {
+        "I am a living thing"
+    }
+}
+
+/* struct Animal: LivingThing {
+ 
+ }
+ */
