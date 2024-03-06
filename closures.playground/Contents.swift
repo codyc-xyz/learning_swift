@@ -24,3 +24,6 @@ let ages: [Int] = [22, 23, 30, 19]
 ages.sorted(by: {(_ lhs: Int, _ rhs: Int) -> Bool in
         lhs < rhs
 })
+
+ages.sorted(by: <)
+ages.sorted(by: >)
