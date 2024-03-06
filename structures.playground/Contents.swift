@@ -14,6 +14,7 @@ let foo = Person(name: "Foo", age: 20)
 foo.name
 foo.age
 
+// init properties (can also assign directly)
 struct CommodoreComputer {
     let name: String
     let manufacturer: String
@@ -24,3 +25,13 @@ struct CommodoreComputer {
 }
 
 let c64 = CommodoreComputer(name: "c64")
+
+// computed properties
+
+struct Person2 {
+    let firstName: String
+    let lastName: String
+    var fullName: String {
+        "\(firstName) \(lastName)"
+    }
+}
