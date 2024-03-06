@@ -99,4 +99,10 @@ enum FavoriteEmoji: String, CaseIterable {
 }
 
 let emojiCases = FavoriteEmoji.allCases.map(\.rawValue)
-emojiCases
+
+if let blush = FavoriteEmoji(rawValue: "blush") {
+    "Found blush"
+    blush
+} else {
+    "This emoji does not exist"
+}
