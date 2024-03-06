@@ -72,16 +72,14 @@ let car = Vehicle.car(manufacturer: "Toyota", model: "X")
 
 let bike = Vehicle.bike(manufacturer: "HD", yearMade: 1986)
 
-func getManufacturer(vehicle: Vehicle) {
+func getManufacturer(from vehicle: Vehicle) -> String {
     switch vehicle {
         case let .car(manufacturer, _):
-            manufacturer
-            break
+            return manufacturer
         case let .bike(manufacturer, _):
-            manufacturer
-            break
+            return manufacturer
     }
 }
 
-getManufacturer(vehicle: car)
-getManufacturer(vehicle: bike)
+getManufacturer(from: car)
+getManufacturer(from: bike)
