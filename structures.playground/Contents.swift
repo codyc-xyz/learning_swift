@@ -76,3 +76,16 @@ struct LivingThing {
  
  }
  */
+
+// what if you want to have custom logic while copying over something to a variable - have to create logic yourself
+struct Bike {
+    let manufacturer: String
+    let currentSpeed: Int
+    func copiedWith(currentSpeed: Int) -> Bike {
+        Bike(manufacturer: self.manufacturer, currentSpeed: currentSpeed)
+    }
+}
+
+let bike1 = Bike(manufacturer: "Harley", currentSpeed: 20)
+
+let bike2 = bike1.copiedWith(currentSpeed: 30)
