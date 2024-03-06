@@ -91,3 +91,12 @@ enum FamilyMember: String {
 }
 
 FamilyMember.father.rawValue
+
+// CaseIterable allows you to iterate through all the enum cases
+
+enum FavoriteEmoji: String, CaseIterable {
+    case blush = "blush", rocket="rocket", fire="fire"
+}
+
+let emojiCases = FavoriteEmoji.allCases.map(\.rawValue)
+emojiCases
