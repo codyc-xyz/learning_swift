@@ -50,3 +50,16 @@ struct Car {
         currentSpeed = speed
     }
 }
+
+// does not work if you instantiate instance with let, have to use var e.g.
+
+var myCar = Car(currentSpeed: 10)
+myCar.drive(speed: 20)
+myCar.currentSpeed
+
+// assigning an instance of a struct to another variable assigns the values, not the struct itself (copy)
+
+let copy = myCar
+myCar.drive(speed: 40)
+copy.currentSpeed
+myCar.currentSpeed
