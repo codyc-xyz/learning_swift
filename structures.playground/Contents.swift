@@ -2,13 +2,25 @@ import Foundation
 
 // structures are a way to group data together
 // they are value types - when you assign an instance of a structure to another variable, the data inside gets copied over. It is not the same reference
+// constructors are implicitly created for structures in swift -> many devs prefer structs over classes
 
-struct person {
+struct Person {
     let name: String
     let age: Int
 }
 
-let foo = person(name: "Foo", age: 20)
+let foo = Person(name: "Foo", age: 20)
 
 foo.name
 foo.age
+
+struct CommodoreComputer {
+    let name: String
+    let manufacturer: String
+    init (name: String) {
+        self.name = name
+        self.manufacturer = "Commodore"
+    }
+}
+
+let c64 = CommodoreComputer(name: "c64")
