@@ -56,6 +56,16 @@ protocol hasName {
     var age: Int { get set }
 }
 
+extension hasName {
+    func describeMe() {
+        // extension can access name and age vars in protocol as they are mandatory
+        "Your name is \(name) and you are \(age) years old"
+    }
+    mutating func increaseAge() {
+        self.age += 1
+    }
+}
+
 struct Dog: hasName {
     let name: String
     var age: Int
@@ -64,3 +74,26 @@ struct Dog: hasName {
 var woof = Dog(name: "Spot", age: 5)
 // because age has a set, you can increase age, because name is just get, you could possible change if the Dog struct was a var, but since it is let, cannot
 woof.age += 1
+woof.describeMe()
+
+
+protocol Vehicle {
+    var speed: Int {get set}
+}
+
+extension Vehicle {
+    mutating func increaseSpeed(by value: Int) {
+        self.speed += value
+    }
+}
+
+struct Bike: Vehicle {
+    var speed: Int
+    init() {
+        self.speed = 0
+    }
+}
+
+var bike = Bike()
+bike.speed
+bike.increaseSpeed(by: 20)
