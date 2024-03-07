@@ -41,3 +41,18 @@ func jumpAndRun<T: canJump & canRun>(val: T) {
     val.jump()
     val.run()
 }
+
+let person = Person()
+jumpAndRun(val: person)
+
+// extending the data type -> array of strings
+extension [String] {
+    func longestString() -> String? {
+        self.sorted { (lhs: String, rhs: String) -> Bool in
+            lhs.count > rhs.count
+        }.first
+    }
+}
+
+let stringArr: [String] = ["a", "aa", "ah8d7ewhd", "b"]
+stringArr.longestString()
