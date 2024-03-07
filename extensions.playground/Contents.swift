@@ -54,3 +54,20 @@ extension Car: GoesVroom {
     }
 }
 modelX.goVroom()
+
+// extensions on classes with convenience initializers
+
+class myDouble {
+    let value: Double
+    init(value: Double) {
+        self.value = value
+    }
+}
+
+extension myDouble {
+    convenience init() {
+        self.init(value: 0)
+    }
+}
+
+myDouble().value
