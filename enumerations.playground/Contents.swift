@@ -106,3 +106,14 @@ if let blush = FavoriteEmoji(rawValue: "blush") {
 } else {
     "This emoji does not exist"
 }
+
+enum Height {
+    case short, medium, long
+    mutating func makeLong() {
+        self = Height.long
+    }
+}
+
+var myHeight = Height.medium
+myHeight.makeLong()
+myHeight
