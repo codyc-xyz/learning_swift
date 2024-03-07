@@ -7,7 +7,7 @@ protocol canBreathe {
     func breathe()
 }
 
-// structs allow inheritance from protocols
+// structs allow inheritance from protocols -> if inheritance, any protocol func has to be implemented by struct or raise error
 struct Animal: canBreathe {
     func breathe() {
         "Animal breathing..."
@@ -19,3 +19,21 @@ struct Person: canBreathe {
         "Person breathing..."
     }
 }
+
+let dog = Animal()
+dog.breathe()
+let person = Person()
+person.breathe()
+
+// cannot create function body within protocol itself
+protocol canJump {
+    func jump()
+}
+
+// use extensions to add implementation of function
+extension canJump {
+    func jump() {
+        "Jumping..."
+    }
+}
+
