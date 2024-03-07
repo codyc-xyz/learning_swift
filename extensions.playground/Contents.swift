@@ -71,3 +71,11 @@ extension myDouble {
 }
 
 myDouble().value
+
+extension GoesVroom {
+    func moreVroom() -> String {
+        return "VROOOM \(self.vroomValue)"
+    }
+}
+
+modelX.moreVroom()
