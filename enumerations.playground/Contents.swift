@@ -107,6 +107,7 @@ if let blush = FavoriteEmoji(rawValue: "blush") {
     "This emoji does not exist"
 }
 
+// mutating enum
 enum Height {
     case short, medium, long
     mutating func makeLong() {
@@ -117,3 +118,27 @@ enum Height {
 var myHeight = Height.medium
 myHeight.makeLong()
 myHeight
+
+// indirect/recursive enums - an enum that refers to itself
+
+indirect enum IntOperation {
+    case add(Int, Int)
+    case subtract(Int, Int)
+    case freeHand(IntOperation)
+    
+    func calculateResult(
+        of operation: IntOperation? = nil
+    ) -> Int {
+        switch operation ?? self {
+        case let .add(lhs, rhs):
+            return lhs + rhs
+        case let .subtract(lhs, rhs):
+            return lhs + rhs
+        case let .freeHand(operation):
+            return calculateResult(of: operation)
+        }
+    }
+}
+
+let freeHand = IntOperation.freeHand(.add(2, 4))
+freeHand.calculateResult()
