@@ -24,3 +24,6 @@ extension Person {
     }
 }
 
+let person = Person(fullName: "Foo Bar")
+person.firstName
+person.lastName
