@@ -96,3 +96,20 @@ class TeslaModelY: Tesla {
         super.init(model: "Y", year: 2023)
     }
 }
+
+let modelY = TeslaModelY()
+modelY.model
+modelY.year
+modelY.manufacturer
+
+let fooBar = Person2(age: 40)
+fooBar.age
+
+// classes are reference types -> by calling this function on the reference, you increase the age of the reference which is reflected in anything that points to that reference
+func doSomething(with person: Person2) {
+    person.increaseAge()
+}
+
+doSomething(with: fooBar)
+fooBar.age
+
