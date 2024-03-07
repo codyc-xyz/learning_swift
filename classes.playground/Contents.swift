@@ -46,3 +46,17 @@ class Car: Vehicle {
 
 let car = Car()
 car.goVroom()
+
+// classes allow private variables that can only be mutated internally
+class Person2 {
+    private(set) var age: Int
+    init(age: Int) {
+        self.age = age
+    }
+    func increaseAge() {
+        self.age+=1
+    }
+}
+
+let Baz = Person2(age: 30)
+// this doesnt work -> Baz.age += 1
