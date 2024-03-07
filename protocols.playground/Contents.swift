@@ -122,4 +122,5 @@ func increaseSpeedIfVehicle(obj: Any) {
         "This is not a vehicle"
     }
 }
+// keep in mind passing this is the same as passing a copy of the values, so if you check speed before and after from outside the function, it will be the same. If you want this to persist, use a class
 increaseSpeedIfVehicle(obj: bike)
