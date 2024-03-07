@@ -113,3 +113,24 @@ func doSomething(with person: Person2) {
 doSomething(with: fooBar)
 fooBar.age
 
+// de-initializers -> invoked automatically by Swift whenever your class instance goes out of memory
+
+class myClass {
+    init() {
+        "Initialized"
+    }
+    func doSomething() {
+        "Do something"
+    }
+    deinit {
+        "Deinitialized"
+    }
+}
+
+let myClosure = {
+    let myClass = myClass()
+    myClass.doSomething()
+}
+
+// after myClosure is called -> The scope completely finishes, which means all variables in the scope should go out of scope, deinit called on all myClass instances
+myClosure()
