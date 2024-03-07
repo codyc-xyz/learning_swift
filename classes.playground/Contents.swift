@@ -60,3 +60,28 @@ class Person2 {
 
 let Baz = Person2(age: 30)
 // this doesnt work -> Baz.age += 1
+
+
+// convenience initializers vs designated initializers
+
+// designated initializers goal is to ensure that all property values are set and the internal validity of the structure holds up
+// convenience initializers add some logic to the constructor/initializer -> they designate the initialization to a designated initializer
+
+class Tesla {
+    let manufacturer: String = "Tesla"
+    let model: String
+    let year: Int
+    //this is a designated initializer
+    // designated initializers cannot designate their work to another designated initializer
+    init(
+        model: String,
+        year: Int
+    ) {
+        self.model = model
+        self.year = year
+    }
+    // this convenience init designates the initializing to self.init (above)
+    convenience init(model: String) {
+        self.init(model: model, year: 2023)
+    }
+}
