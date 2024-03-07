@@ -27,3 +27,30 @@ extension Person {
 let person = Person(fullName: "Foo Bar")
 person.firstName
 person.lastName
+
+
+protocol GoesVroom {
+    var vroomValue: String { get }
+    func goVroom() -> String
+    
+}
+
+extension GoesVroom {
+    func goVroom() -> String {
+        return "\(self.vroomValue) goes Vroom"
+    }
+}
+
+struct Car {
+    let manufacturer: String
+    let model: String
+}
+
+let modelX = Car(manufacturer: "Tesla", model: "X")
+
+extension Car: GoesVroom {
+    var vroomValue: String {
+        "\(self.manufacturer) model \(self.model)"
+    }
+}
+modelX.goVroom()
