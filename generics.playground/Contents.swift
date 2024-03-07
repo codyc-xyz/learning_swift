@@ -17,3 +17,27 @@ func performSignatureEnd<N>(_ op: (N, N) -> N,
 }
 
 performSignatureEnd(+, on: 10, and: 20)
+
+// classes and structs can conform to multiple protocols -> you can use this to create generics that are conformant to multiple types
+
+protocol canJump {
+    func jump()
+}
+
+protocol canRun {
+    func run()
+}
+
+struct Person: canJump, canRun {
+    func jump() {
+        "Jumping"
+    }
+    func run() {
+        "Running"
+    }
+}
+
+func jumpAndRun<T: canJump & canRun>(val: T) {
+    val.jump()
+    val.run()
+}
