@@ -10,3 +10,17 @@ extension Int {
  let two = 2
 two.plusTwo()
 two
+
+struct Person {
+    let firstName: String
+    let lastName: String
+}
+
+// gives an additional option for a constructor, not possible if placed in Person struct
+extension Person {
+    init(fullName: String) {
+        let components = fullName.components(separatedBy: " ")
+        self.init(firstName: components.first ?? fullName, lastName: components.last ?? fullName)
+    }
+}
+
