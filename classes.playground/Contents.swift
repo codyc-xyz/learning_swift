@@ -73,6 +73,10 @@ class Tesla {
     let year: Int
     //this is a designated initializer
     // designated initializers cannot designate their work to another designated initializer
+    init() {
+        self.model = "Y"
+        self.year = 2023
+    }
     init(
         model: String,
         year: Int
@@ -83,5 +87,12 @@ class Tesla {
     // this convenience init designates the initializing to self.init (above)
     convenience init(model: String) {
         self.init(model: model, year: 2023)
+    }
+}
+
+class TeslaModelY: Tesla {
+    // override the parent class's init(), cannot call convenience init from inside a designated init
+    override init() {
+        super.init(model: "Y", year: 2023)
     }
 }
