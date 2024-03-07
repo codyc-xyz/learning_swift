@@ -107,3 +107,19 @@ func describe(obj: Any) {
         "This object does not confrom to vehicle protocol"
     }
 }
+
+describe(obj: bike)
+
+// as syntax allows you to conditionally promote an object to a specific type
+
+func increaseSpeedIfVehicle(obj: Any) {
+    // using as here gives access to all vehicle properties, if statement not sufficient
+    if var vehicle = obj as? Vehicle {
+        vehicle.speed
+        vehicle.increaseSpeed(by: 50)
+        vehicle.speed
+    } else {
+        "This is not a vehicle"
+    }
+}
+increaseSpeedIfVehicle(obj: bike)
