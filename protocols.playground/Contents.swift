@@ -97,3 +97,13 @@ struct Bike: Vehicle {
 var bike = Bike()
 bike.speed
 bike.increaseSpeed(by: 20)
+
+// if you want to check if object conforms to protocol: is syntax
+
+func describe(obj: Any) {
+    if obj is Vehicle {
+        "This object conforms to vehicle protocol"
+    } else {
+        "This object does not confrom to vehicle protocol"
+    }
+}
