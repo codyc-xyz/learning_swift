@@ -31,3 +31,18 @@ if foo === bar {
 } else {
     "they don't point to the same thing in memory"
 }
+
+// classes, unlike structures, have inheritance
+
+class Vehicle {
+    func goVroom() {
+        "Vroom Vroom"
+    }
+}
+
+class Car: Vehicle {
+    
+}
+
+let car = Car()
+car.goVroom()
