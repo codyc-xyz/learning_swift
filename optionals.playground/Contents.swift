@@ -26,3 +26,28 @@ if let age {
 } else {
     "Age is nil"
 }
+
+func checkAge() {
+    // the below two are the same, but the latter is better syntax and can unwrap vals through guard let
+//    if age == nil {
+//        "Age is nil"
+//    }
+    // if age is necessary to the function working, use guard as below
+    guard age != nil else {
+        "Age is nil"
+        return
+    }
+    // however, age is still considered an optional here due to lack of use of guard let
+    "Age is not nil"
+    
+}
+
+let age2: Int? = 0
+
+func checkAge2() {
+    guard let age2 else {
+        return
+    }
+    // age2 is no longer optional here due to guard let
+    let xxx = age2;
+}
