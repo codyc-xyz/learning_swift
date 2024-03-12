@@ -61,3 +61,18 @@ case .none:
 case let .some(value):
     "Age is \(value)"
 }
+
+// the below two if statements have the same effect, but the latter is better syntax for optionals
+
+if age2 == 0 {
+    "Age2 is 0"
+} else {
+    "Age2 is not 0"
+}
+
+if age2 == .some(0) {
+    "Age2 is 0"
+} else {
+    "Age2 is not 0"
+}
+
