@@ -145,3 +145,16 @@ do {
 } catch {
     "Some other error"
 }
+
+// rethrows -> function that internally calls another function that can also throw
+
+func fullName(
+    firstName: String?,
+    lastName: String?,
+    calculator: (String?, String?) throws -> String?
+// for a function to be marked rethrows, has to have a closure argument which throws
+) rethrows -> String? {
+    try calculator(firstName, lastName)
+}
+
+
