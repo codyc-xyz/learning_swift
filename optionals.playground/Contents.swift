@@ -76,3 +76,17 @@ if age2 == .some(0) {
     "Age2 is not 0"
 }
 
+// optional chaining
+struct Person {
+    let name: String
+    let address: Address?
+    struct Address {
+        let firstLine: String?
+    }
+}
+
+let foo: Person = Person(name: "Foo", address: nil)
+
+if let fooFirstAddressLine = foo.address?.firstLine {
+    fooFirstAddressLine
+}
