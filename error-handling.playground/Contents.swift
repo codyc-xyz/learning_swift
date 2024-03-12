@@ -21,8 +21,16 @@ struct Person {
             throw PersonErrors.lastNameIsNil
         case (.none, .some):
             throw PersonErrors.firstNameIsNil
-        case (.some, .some):
-            throw PersonErrors.bothNamesAreNil
+        case let (.some(firstName), .some(lastName)):
+            return "\(firstName) \(lastName)"
         }
     }
+}
+
+let foo = Person(firstName: "Foo", lastName: nil)
+
+do {
+    let fooName = try foo.getFullName()
+} catch {
+    "Error: \(error)"
 }
