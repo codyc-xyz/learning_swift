@@ -107,9 +107,18 @@ extension PresentableAsView {
     }
 }
 
-struct MyButon: PresentableAsView {
+struct MyButton: PresentableAsView {
     func produceView() -> Button {
         Button()
     }
-    
 }
+
+// conditional extension
+extension PresentableAsView where ViewType == Button {
+    func doSomethingWithButton() {
+        "This is a button"
+    }
+}
+
+let button = MyButton()
+button.doSomethingWithButton()
