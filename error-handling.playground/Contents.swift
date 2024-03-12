@@ -92,3 +92,34 @@ if let yourCar = try? Car(manufacturer: "Tesla") {
 
 // crash the application if function is unsuccessful -> never use this syntax
 // let theirCar = try! Car(manufacturer: "")
+
+struct Dog {
+    let isInjured: Bool
+    let isSleeping: Bool
+    
+    enum DogErrors: Error {
+        case cannotBarkIsSleeping
+        case cannotRunIsInjured
+    }
+    
+    func bark() throws {
+        if isSleeping {
+            throw DogErrors.cannotBarkIsSleeping
+        } else {
+            "Bark..."
+        }
+    }
+    
+    func run() throws {
+        if isInjured {
+            throw DogErrors.cannotRunIsInjured
+        } else {
+            "Running..."
+        }
+    }
+    // if you mark your function as throws, you can try things without a do/catch catch. if any function inside throws, this function will throw
+    func barkAndRun() throws {
+        try bark()
+        try run()
+    }
+}
