@@ -11,3 +11,18 @@ func multiplyByTwo(_ value: Int? = nil) -> Int {
     }
 }
 multiplyByTwo()
+
+let age: Int? = nil
+
+// the below two conditionals work the same
+if age != nil {
+    "Age is not nil"
+} else {
+    "Age is nil"
+}
+
+if let age {
+    "Age is not nil"
+} else {
+    "Age is nil"
+}
