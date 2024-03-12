@@ -122,3 +122,12 @@ extension PresentableAsView where ViewType == Button {
 
 let button = MyButton()
 button.doSomethingWithButton()
+
+extension [Int] {
+    func average() -> Double {
+        Double(self.reduce(0, +)) / Double(self.count)
+    }
+}
+
+[1, 2, 3, 4].average()
+
