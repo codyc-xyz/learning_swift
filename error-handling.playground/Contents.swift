@@ -89,3 +89,6 @@ if let yourCar = try? Car(manufacturer: "Tesla") {
 } else {
     "Failed to construct and error is not accessible now"
 }
+
+// crash the application if function is unsuccessful -> never use this syntax
+// let theirCar = try! Car(manufacturer: "")
