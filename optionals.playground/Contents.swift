@@ -89,4 +89,29 @@ let foo: Person = Person(name: "Foo", address: nil)
 
 if let fooFirstAddressLine = foo.address?.firstLine {
     fooFirstAddressLine
+} else {
+    "Foo has no first address Line"
+}
+
+let bar: Person? = Person(name: "Bar", address: Person.Address(firstLine: nil))
+
+if bar?.name == "Bar", bar?.address?.firstLine == nil {
+    "bar's first name is Bar, Bar does not have a first line address"
+} else {
+    "Either bar's name isn't bar, or bar has a first line address"
+}
+
+let baz: Person? = Person(name: "Baz", address: Person.Address(firstLine: "First Line"))
+
+// switching on nested optional
+
+switch baz?.address?.firstLine {
+case .none:
+    "Baz has no first line address"
+    break
+case let .some(value) where value.starts(with: "Baz"):
+    "Baz's first line address starts with Baz"
+case let .some(value):
+    "Baz has a first line address that does not start with Baz"
+
 }
