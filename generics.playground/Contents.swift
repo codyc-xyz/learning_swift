@@ -56,3 +56,38 @@ extension [String] {
 
 let stringArr: [String] = ["a", "aa", "ah8d7ewhd", "b"]
 stringArr.longestString()
+
+// associated types in protocols
+
+protocol View {
+    func addSubView(_ view: View)
+}
+
+extension View {
+    func addSubView(_ view: View) {
+        // empty
+    }
+}
+
+struct Button: View {
+    // empty
+}
+
+struct Person2 {
+    let name: String
+}
+
+// if you want to turn a protocol into a generic protocol you use keyword 'associatedtype' (adds generic parameter)
+protocol PresentableAsView {
+    associatedtype ViewType: View
+    // making produce view return a viewtype here means e.g. if the viewtype is button, returns button
+    func produceView() -> ViewType
+    func configure(
+        superView: View,
+        thisView: ViewType
+    )
+    func present(
+        view: ViewType,
+        on superView: View
+    )
+}
