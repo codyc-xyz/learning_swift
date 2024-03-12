@@ -91,3 +91,25 @@ protocol PresentableAsView {
         on superView: View
     )
 }
+
+extension PresentableAsView {
+    func configure(
+        superView: View,
+        thisView: ViewType
+    ) {
+        // empty by default
+    }
+    func present(
+        view: ViewType,
+        on superView: View
+    ) {
+        superView.addSubView(view)
+    }
+}
+
+struct MyButon: PresentableAsView {
+    func produceView() -> Button {
+        Button()
+    }
+    
+}
