@@ -157,4 +157,30 @@ func fullName(
     try calculator(firstName, lastName)
 }
 
+enum NameErrors: Error {
+    case firstNameIsInvalid
+    case lastNameIsInvalid
+}
 
+func + (
+    firstName: String?,
+    lastName: String?
+) throws -> String? {
+    guard let firstName, !firstName.isEmpty else {
+        throw NameErrors.firstNameIsInvalid
+    }
+    guard let lastName, !lastName.isEmpty else {
+        throw NameErrors.lastNameIsInvalid
+    }
+    return "\(firstName) \(lastName)"
+}
+
+do {
+    let fooBar = try fullName(firstName: "", lastName: "Bar", calculator: +)
+} catch NameErrors.firstNameIsInvalid {
+    "First name is invalid"
+} catch NameErrors.lastNameIsInvalid {
+    "Last name is invalid"
+} catch let err {
+    "Some other error = \(err)"
+}
