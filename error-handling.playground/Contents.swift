@@ -133,3 +133,15 @@ do {
 } catch {
     "Some other error"
 }
+
+// only first thrown error is caught
+
+do {
+    try myDog.barkAndRun()
+} catch Dog.DogErrors.cannotBarkIsSleeping {
+    "Cannot bark is sleeping"
+} catch Dog.DogErrors.cannotRunIsInjured {
+    "Cannot run is injured"
+} catch {
+    "Some other error"
+}
