@@ -51,3 +51,13 @@ func checkAge2() {
     // age2 is no longer optional here due to guard let
     let xxx = age2;
 }
+
+// just like you can switch on enumerations, you can switch on optionals
+
+switch age {
+    
+case .none:
+    "Age is nil"
+case let .some(value):
+    "Age is \(value)"
+}
