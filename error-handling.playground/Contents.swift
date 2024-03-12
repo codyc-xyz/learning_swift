@@ -73,3 +73,19 @@ struct Car {
     }
     
 }
+
+do {
+    let myCar = try Car(manufacturer: "")
+} catch Car.CarErrors.invalidManufacturer {
+    "Manufacturer is invalid"
+} catch {
+    "Some other error"
+}
+
+// if function is successful, grab value
+
+if let yourCar = try? Car(manufacturer: "Tesla") {
+    "Success, your car was manufactured by \(yourCar.manufacturer)"
+} else {
+    "Failed to construct and error is not accessible now"
+}
