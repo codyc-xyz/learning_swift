@@ -184,3 +184,16 @@ do {
 } catch let err {
     "Some other error = \(err)"
 }
+
+// Results are related to error handling within API calls (Generally)
+// for when a function fails more gracefully, doesn't throw an error but carries an error with it
+
+enum IntegerErrors: Error {
+    case noPositiveIntegerBefore(thisValue: Int)
+}
+func getPreviousPositiveInteger(from int: Int) -> Result<Int, IntegerErrors> {
+    guard int > 0 else {
+        return Result.failure(IntegerErrors.noPositiveIntegerBefore(thisValue: int))
+    }
+    return Result.success(int-1)
+}
