@@ -55,3 +55,21 @@ do {
 } catch {
     "Some other error was thrown"
 }
+
+// throwing initializers/constructors
+
+struct Car {
+    let manufacturer: String
+    enum CarErrors: Error {
+        case invalidManufacturer
+    }
+    init(
+        manufacturer: String
+    ) throws {
+        if manufacturer.isEmpty {
+            throw CarErrors.invalidManufacturer
+        }
+        self.manufacturer = manufacturer
+    }
+    
+}
