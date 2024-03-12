@@ -115,3 +115,14 @@ case let .some(value):
     "Baz has a first line address that does not start with Baz"
 
 }
+
+func getFullName(
+    firstName: String,
+    lastName: String?
+) -> String? {
+    if let lastName {
+        return "\(firstName) \(lastName)"
+    } else {
+        return nil
+    }
+}
