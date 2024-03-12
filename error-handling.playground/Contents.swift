@@ -123,3 +123,13 @@ struct Dog {
         try run()
     }
 }
+
+let myDog = Dog(isInjured: true, isSleeping: true)
+
+do {
+    try myDog.barkAndRun()
+} catch Dog.DogErrors.cannotBarkIsSleeping, Dog.DogErrors.cannotRunIsInjured {
+    "Cannot bark is sleeping or cannot run is injured"
+} catch {
+    "Some other error"
+}
