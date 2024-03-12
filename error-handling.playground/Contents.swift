@@ -34,3 +34,24 @@ do {
 } catch {
     "Error: \(error)"
 }
+
+// catching specific errors
+
+do {
+    let fooName = try foo.getFullName()
+// pattern matching on catch
+} catch is Person.PersonErrors {
+    "Got a person error"
+}
+
+do {
+    let fooName = try foo.getFullName()
+} catch Person.PersonErrors.firstNameIsNil {
+    "First Name is nil"
+} catch Person.PersonErrors.lastNameIsNil {
+    "Last name is nil"
+} catch Person.PersonErrors.bothNamesAreNil {
+    "Both names are nil"
+} catch {
+    "Some other error was thrown"
+}
