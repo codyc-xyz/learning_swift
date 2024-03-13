@@ -122,6 +122,7 @@ struct Person2: Hashable {
         hasher.combine(id)
     }
     // necessary to add a custom equality func to define how the hashing determines equality (e.g. make it only count id)
+    // after implementing the above and below, two items with the same id will not both be included in a set of Person2s
     static func == (
         lhs: Self,
         rhs: Self
@@ -129,3 +130,15 @@ struct Person2: Hashable {
         lhs.id == rhs.id
     }
 }
+
+
+// dicts in swift
+let userInfo: [String:Any] =
+    [
+        "Name":"Foo",
+        "Age": 20,
+        "Address": [
+            "line1":"Address Line 1",
+            "postcode":"12345"
+        ]
+    ]
