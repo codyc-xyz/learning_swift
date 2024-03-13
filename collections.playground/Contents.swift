@@ -152,5 +152,19 @@ let keys = userInfo.keys
 let vals = userInfo.values
 
 for (key, val) in userInfo {
+    // print(key, val)
+}
+
+// pattern matching key/val extraction
+for (key, val) in userInfo where key == "Name" {
     print(key, val)
 }
+
+for (key, val) in userInfo where val is Int {
+    print(key, val)
+}
+
+for (key, val) in userInfo where key.count > 2 && val is Int {
+    print(key, val)
+}
+
