@@ -89,4 +89,8 @@ let intsInSet: Set<Int> = Set(heterogeneousSet.compactMap {
     val as? Int
 })
 
-print(intsInSet)
+let stringsInSet: Set<String> = Set(heterogeneousSet.compactMap {
+    (val: Any) -> String? in
+    val as? String
+})
+print(stringsInSet)
