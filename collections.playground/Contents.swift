@@ -78,3 +78,7 @@ let numsNotNil: [Int] = myNums.compactMap {
     num
 }
 print(numsNotNil)
+
+// sets can also contain any type of val via 'AnyHashable' type
+
+let heterogeneousSet: Set<AnyHashable> = [1,2,3,"Vandad"]
