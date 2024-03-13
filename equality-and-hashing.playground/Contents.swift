@@ -83,3 +83,18 @@ if cat1 == cat2 {
 } else {
     "cat1 and cat2 are not the same type of animal"
 }
+
+
+// hashable also looks at all properties of a structure/class
+
+struct House: Hashable {
+    let number: Int
+    let numberOfBedrooms: Int
+}
+
+let house1 = House(number: 123, numberOfBedrooms: 2)
+let house2 = House(number: 123, numberOfBedrooms: 2)
+
+// because house1 and house2 have the exact same properties, they have the same hash value below. If you were to change one property, the hash value would become different
+house1.hashValue
+house2.hashValue
