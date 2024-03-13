@@ -50,3 +50,17 @@ if dog == dog2 {
 } else {
     "dog and dog2 are not identical"
 }
+
+extension AnimalType {
+    static func == (
+        lhs: Self, rhs: Self
+    ) -> Bool {
+        switch (lhs, rhs) {
+        case let (.dog(lhsBreed), .dog(rhsBreed)),
+            let (.cat(lhsBreed), .cat(rhsBreed)):
+            return lhsBreed == rhsBreed
+        default:
+            return false
+        }
+    }
+}
