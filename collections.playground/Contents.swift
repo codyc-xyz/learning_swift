@@ -38,8 +38,16 @@ let evens = mutatingArray.filter {
     val % 2 == 0
 }
 
+// compact map is a combination of map and filter -> returns optional string
 let compactEvens = mutatingArray.compactMap {
     (val: Int) -> String? in
     val % 2 == 0 ? String(val) : nil
 }
-print(compactEvens)
+
+// arrays can contain nil
+let numbers2: [Int?] = [nil, 1, 2, 3, 4]
+let notNil = numbers2.filter {
+    (num: Int?) -> Bool in
+    num != nil
+}
+print(notNil)
