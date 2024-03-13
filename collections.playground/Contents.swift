@@ -77,7 +77,7 @@ let numsNotNil: [Int] = myNums.compactMap {
     (num: Int?) -> Int? in
     num
 }
-print(numsNotNil)
+// print(numsNotNil)
 
 // sets can also contain any type of val via 'AnyHashable' type
 
@@ -93,7 +93,7 @@ let stringsInSet: Set<String> = Set(heterogeneousSet.compactMap {
     (val: Any) -> String? in
     val as? String
 })
-print(stringsInSet)
+// print(stringsInSet)
 
 // allowing a Person instance to be included in a set -> Use Hashable protocol
 // note: Hashable without custom logic will only check to see if the entire item is identical or not. E.g. a duplicate ID will not matter
@@ -133,6 +133,7 @@ struct Person2: Hashable {
 
 
 // dicts in swift
+// heterogenous dict
 let userInfo: [String:Any] =
     [
         "Name":"Foo",
@@ -142,3 +143,14 @@ let userInfo: [String:Any] =
             "postcode":"12345"
         ]
     ]
+
+//can grab val out of dict via subscript
+userInfo["Address"]
+
+// extracting all keys/all vals from dict
+let keys = userInfo.keys
+let vals = userInfo.values
+
+for (key, val) in userInfo {
+    print(key, val)
+}
