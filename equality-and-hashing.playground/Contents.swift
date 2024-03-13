@@ -127,3 +127,11 @@ let house4 = NumberedHouse(number: 123, numberOfBedrooms: 4)
 let numberedHouses: Set<NumberedHouse> = Set([house3, house4])
 print(numberedHouses)
 
+// enums are by default hashable even without raw values
+
+enum CarPart {
+    case roof, tire, trunk
+}
+
+let uniqueParts: Set<CarPart> = Set([.roof, .roof, .tire, .trunk, .tire])
+print(uniqueParts)
