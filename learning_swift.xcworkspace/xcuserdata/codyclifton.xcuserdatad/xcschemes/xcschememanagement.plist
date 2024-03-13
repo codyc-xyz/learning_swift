@@ -109,6 +109,27 @@
 			<key>orderHint</key>
 			<integer>17</integer>
 		</dict>
+		<key>custom-operators (Playground) 1.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>24</integer>
+		</dict>
+		<key>custom-operators (Playground) 2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
+		<key>custom-operators (Playground).xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>23</integer>
+		</dict>
 		<key>enumerations (Playground) 1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
