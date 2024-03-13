@@ -38,4 +38,8 @@ let evens = mutatingArray.filter {
     val % 2 == 0
 }
 
-print(evens)
+let compactEvens = mutatingArray.compactMap {
+    (val: Int) -> String? in
+    val % 2 == 0 ? String(val) : nil
+}
+print(compactEvens)
