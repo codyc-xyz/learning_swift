@@ -58,4 +58,9 @@ let arrayOfIntsNotOptional = numbers2.compactMap {
     (num: Int?) -> Int? in
     num
 }
-print(arrayOfIntsNotOptional)
+
+// arrays can include different kinds of data-types e.g. ints and strings etc.
+
+let multiArr: [Any] = [0, "1", 2, "3"]
+
+// sets
