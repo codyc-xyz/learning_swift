@@ -15,4 +15,6 @@ numbers.map(-)
 var mutatingArray: [Int] = [1,2,3,4]
 mutatingArray.append(5)
 mutatingArray.insert(0, at: 0)
-mutatingArray
+
+// can insert an entire array into a prexisting array
+mutatingArray.insert(contentsOf: [6,7,8], at: 5)
