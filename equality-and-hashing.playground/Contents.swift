@@ -64,3 +64,22 @@ extension AnimalType {
         }
     }
 }
+
+struct Animal: Equatable {
+    let name: String
+    let type: AnimalType
+    // overwrite custom '==' static func with equality determined by AnimalType
+    static func == (
+        lhs: Self, rhs: Self) -> Bool {
+            return lhs.type == rhs.type
+        }
+}
+
+let cat1 = Animal(name: "Bob", type: AnimalType.cat(breed: "Pom"))
+let cat2 = Animal(name: "Rob", type: AnimalType.cat(breed: "Pom"))
+
+if cat1 == cat2 {
+    "cat1 and cat2 are the same type of animal"
+} else {
+    "cat1 and cat2 are not the same type of animal"
+}
