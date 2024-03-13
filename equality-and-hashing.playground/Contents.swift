@@ -133,5 +133,27 @@ enum CarPart {
     case roof, tire, trunk
 }
 
+// the below will only be a set of the three unique parts
 let uniqueParts: Set<CarPart> = Set([.roof, .roof, .tire, .trunk, .tire])
 print(uniqueParts)
+
+// because there are associated values in the below, those associated values also need to conform to the Hashable protocol
+enum HouseType: Hashable {
+    case bigHouse(NumberedHouse)
+    case smallHouse(NumberedHouse)
+}
+
+let bigHouse1 = HouseType.bigHouse(NumberedHouse(number: 1, numberOfBedrooms: 5))
+let bigHouse2 = HouseType.bigHouse(NumberedHouse(number: 1, numberOfBedrooms: 3))
+
+bigHouse1.hashValue
+bigHouse2.hashValue
+
+let smallHouse1 = HouseType.smallHouse(NumberedHouse(number: 1, numberOfBedrooms: 1))
+let smallHouse2 = HouseType.smallHouse(NumberedHouse(number: 1, numberOfBedrooms: 2))
+smallHouse1.hashValue
+smallHouse2.hashValue
+
+// the below will only count 1 bigHouse and 1 smallHouse as it determines equality by the number as defined in NumberedHouse
+let allHouses: Set<HouseType> = Set([bigHouse1, bigHouse2, smallHouse1, smallHouse2])
+print(allHouses)
