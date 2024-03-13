@@ -110,3 +110,22 @@ let barID = UUID()
 let bar = Person(id: barID, name: "Bar", age: 32)
 
 let people: Set<Person> = Set([foo, bar])
+
+
+// to make a set remove duplicates based off a single val -> eg UUID use func hash which is included in the Hashable protocol
+struct Person2: Hashable {
+    let id: UUID
+    let name: String
+    let age: Int
+    // now only id is hashed, so if two Persons have the same UUID, only one will be included in the set
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    // necessary to add a custom equality func to define how the hashing determines equality (e.g. make it only count id)
+    static func == (
+        lhs: Self,
+        rhs: Self
+    ) -> Bool {
+        lhs.id == rhs.id
+    }
+}
