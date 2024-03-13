@@ -63,4 +63,8 @@ let arrayOfIntsNotOptional = numbers2.compactMap {
 
 let multiArr: [Any] = [0, "1", 2, "3"]
 
-// sets
+// sets are a special collection that only contain unique vals based on hash values and equality
+
+let uniqueNums = Set([1,2,3,4,4])
+uniqueNums.count
+uniqueNums.map(-)
