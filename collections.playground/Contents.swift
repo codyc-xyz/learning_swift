@@ -32,4 +32,10 @@ let timesTwo = mutatingArray.map {
     (val: Int) -> Int in
     val * 2
 }
-print(timesTwo)
+
+let evens = mutatingArray.filter {
+    (val: Int) -> Bool in
+    val % 2 == 0
+}
+
+print(evens)
