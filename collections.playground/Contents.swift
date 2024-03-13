@@ -24,6 +24,12 @@ for value in mutatingArray {
 }
 // can enumerate through items in an array based on pattern matching with 'where' clause
 
-for value in numbers where value % 2 == 0 {
-    print(value)
+for value in mutatingArray where value % 2 == 0 {
+    // print(value)
 }
+
+let timesTwo = mutatingArray.map {
+    (val: Int) -> Int in
+    val * 2
+}
+print(timesTwo)
