@@ -94,3 +94,19 @@ let stringsInSet: Set<String> = Set(heterogeneousSet.compactMap {
     val as? String
 })
 print(stringsInSet)
+
+// allowing a Person instance to be included in a set -> Use Hashable protocol
+// note: Hashable without custom logic will only check to see if the entire item is identical or not. E.g. a duplicate ID will not matter
+struct Person: Hashable {
+    let id: UUID
+    let name: String
+    let age: Int
+}
+
+let fooID = UUID()
+let foo = Person(id: fooID, name: "Foo", age: 22)
+
+let barID = UUID()
+let bar = Person(id: barID, name: "Bar", age: 32)
+
+let people: Set<Person> = Set([foo, bar])
