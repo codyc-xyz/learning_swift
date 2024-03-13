@@ -82,3 +82,11 @@ print(numsNotNil)
 // sets can also contain any type of val via 'AnyHashable' type
 
 let heterogeneousSet: Set<AnyHashable> = [1,2,3,"Vandad"]
+
+let intsInSet: Set<Int> = Set(heterogeneousSet.compactMap {
+    (val: Any) -> Int? in
+    // checks if val is an int and if so returns it
+    val as? Int
+})
+
+print(intsInSet)
