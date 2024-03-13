@@ -98,3 +98,32 @@ let house2 = House(number: 123, numberOfBedrooms: 2)
 // because house1 and house2 have the exact same properties, they have the same hash value below. If you were to change one property, the hash value would become different
 house1.hashValue
 house2.hashValue
+
+let houses: Set<House> = Set([house1, house2])
+
+// you can overwrite how hashing is calculated to make it dependent on some property(s), but not other(s)
+struct NumberedHouse: Hashable {
+    let number: Int
+    let numberOfBedrooms: Int
+    
+    func hash(into hasher: inout Hasher) {
+        // only use number in determining hash
+        hasher.combine(number)
+    }
+    
+    // have to overwrite equality as well to complete custom hash equality determination
+    static func == (
+        lhs: Self, rhs: Self
+    ) -> Bool {
+        return lhs.number == rhs.number
+    }
+}
+
+// the numberedHouse struct will now add items to sets depending solely on their number so e.g. two houses with same number will not be added even if rest of properties are different
+
+let house3 = NumberedHouse(number: 123, numberOfBedrooms: 2)
+let house4 = NumberedHouse(number: 123, numberOfBedrooms: 4)
+
+let numberedHouses: Set<NumberedHouse> = Set([house3, house4])
+print(numberedHouses)
+
