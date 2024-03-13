@@ -46,8 +46,16 @@ let compactEvens = mutatingArray.compactMap {
 
 // arrays can contain nil
 let numbers2: [Int?] = [nil, 1, 2, 3, 4]
+
+// note that filter does not allow you to change the data type from optional
 let notNil = numbers2.filter {
     (num: Int?) -> Bool in
     num != nil
 }
-print(notNil)
+
+// to change the data away from optional use compactMap
+let arrayOfIntsNotOptional = numbers2.compactMap {
+    (num: Int?) -> Int? in
+    num
+}
+print(arrayOfIntsNotOptional)
