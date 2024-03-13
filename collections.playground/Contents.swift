@@ -65,6 +65,16 @@ let multiArr: [Any] = [0, "1", 2, "3"]
 
 // sets are a special collection that only contain unique vals based on hash values and equality
 
-let uniqueNums = Set([1,2,3,4,4])
+let uniqueNums: Set<Int> = Set([1,2,3,4,4])
 uniqueNums.count
 uniqueNums.map(-)
+
+// sets can contain nils and do not guarantee any consistent ordering
+
+let myNums: Set<Int?> = Set([1,1,2,3,4,4,nil,5])
+
+let numsNotNil: [Int] = myNums.compactMap {
+    (num: Int?) -> Int? in
+    num
+}
+print(numsNotNil)
