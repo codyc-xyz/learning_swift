@@ -19,3 +19,18 @@ if foo == bar {
     "Foo and Bar are not equal"
 }
 
+// you can define equality yourself in an extension if you want to change this default behavior of '=='
+// e.g. in the below, whether two Person objects are equal is now determined by their id property
+extension Person {
+    static func == 
+    (lhs: Self, rhs: Self) {
+        lhs.id == rhs.id
+    }
+}
+
+// now foo and bar are considered equal due to the above extension
+if foo == bar {
+    "Foo and Bar are equal"
+} else {
+    "Foo and Bar are not equal"
+}
