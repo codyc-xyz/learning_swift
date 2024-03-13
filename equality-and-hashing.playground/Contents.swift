@@ -23,7 +23,7 @@ if foo == bar {
 // e.g. in the below, whether two Person objects are equal is now determined by their id property
 extension Person {
     static func == 
-    (lhs: Self, rhs: Self) {
+    (lhs: Self, rhs: Self) -> Bool {
         lhs.id == rhs.id
     }
 }
