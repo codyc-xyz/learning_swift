@@ -17,4 +17,13 @@ mutatingArray.append(5)
 mutatingArray.insert(0, at: 0)
 
 // can insert an entire array into a prexisting array
-mutatingArray.insert(contentsOf: [6,7,8], at: 5)
+mutatingArray.insert(contentsOf: [6,7,8], at: 6)
+
+for value in mutatingArray {
+    // print(value)
+}
+// can enumerate through items in an array based on pattern matching with 'where' clause
+
+for value in numbers where value % 2 == 0 {
+    print(value)
+}
