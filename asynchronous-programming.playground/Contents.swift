@@ -16,3 +16,7 @@ func calculateFullName(
     try? await Task.sleep(for: .seconds(1))
     return "\(firstName) \(lastName)"
 }
+
+Task {
+    let result1 = await calculateFullName(firstName: "Foo", lastName: "Bar")
+}
