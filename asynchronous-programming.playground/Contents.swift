@@ -19,4 +19,16 @@ func calculateFullName(
 
 Task {
     let result1 = await calculateFullName(firstName: "Foo", lastName: "Bar")
+    // different syntax
+    async let result2 = calculateFullName(firstName: "Foo", lastName: "Bar")
+    await result2
+}
+
+enum Clothe {
+    case socks, shirt, trousers
+}
+
+func buySocks() async throws -> Clothe {
+    try await Task.sleep(for: .seconds(1))
+    return Clothe.socks
 }
