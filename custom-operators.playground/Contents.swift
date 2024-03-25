@@ -66,7 +66,9 @@ struct Family {
 let mom = Person(name: "Mom")
 let dad = Person(name: "Dad")
 let son = Person(name: "Son")
-let daughter = Person(name: "Daughter")
+let daughter1 = Person(name: "Daughter1")
+let daughter2 = Person(name: "Daughter2")
+
 // the below currently does not work because there is no defined operation for '+' between Person objects
 // let family = dad + mom
 
@@ -94,3 +96,19 @@ func + (
 
 // now the below works
 let familyWithSon = family + son
+
+// the below will not work because there is no behavior for '+' a family and an array of persons
+// let familyWithDaughters = familyWithSon + [daughter1, daughter2]
+
+func + (
+    lhs: Family,
+    rhs: [Person]
+) -> Family {
+    var newFamily = lhs
+    for p in rhs {
+        newFamily.members.append(p)
+    }
+    return newFamily
+}
+
+let familyWithDaughters = familyWithSon + [daughter1, daughter2]
