@@ -6,3 +6,13 @@ import _Concurrency
 PlaygroundPage
     .current
     .needsIndefiniteExecution = true
+
+// async functions are functions that do not immediately return a result
+
+func calculateFullName(
+    firstName: String,
+    lastName: String
+) async -> String {
+    try? await Task.sleep(for: .seconds(1))
+    return "\(firstName) \(lastName)"
+}
