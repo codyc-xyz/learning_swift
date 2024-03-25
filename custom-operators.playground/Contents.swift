@@ -52,3 +52,30 @@ postfix func * (
 
 // now the below works
 let withStars = lowercaseName*
+
+// operators can also work with values of different types
+
+struct Person {
+    let name: String
+}
+
+struct Family {
+    let members: [Person]
+}
+
+let mom = Person(name: "Mom")
+let dad = Person(name: "Dad")
+let son = Person(name: "Son")
+let daughter = Person(name: "Daughter")
+// the below currently does not work because there is no defined operation for '+' between Person objects
+// let family = dad + mom
+
+func + (
+    lhs: Person,
+    rhs: Person
+) -> Family {
+    return Family(members: [lhs, rhs])
+}
+
+// now the below works
+let family = dad + mom
