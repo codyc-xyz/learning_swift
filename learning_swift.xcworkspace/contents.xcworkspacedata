@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:asynchronous-programming.playground">
+   </FileRef>
+   <FileRef
       location = "group:custom-operators.playground">
    </FileRef>
    <FileRef
