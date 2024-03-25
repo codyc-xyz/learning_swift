@@ -32,3 +32,31 @@ func buySocks() async throws -> Clothe {
     try await Task.sleep(for: .seconds(1))
     return Clothe.socks
 }
+
+func buyShirt() async throws -> Clothe {
+    try await Task.sleep(for: .seconds(1))
+    return Clothe.shirt
+}
+
+func buyTrousers() async throws -> Clothe {
+    try await Task.sleep(for: .seconds(1))
+    return Clothe.trousers
+}
+
+struct Ensemble: CustomDebugStringConvertible {
+    let clothes: [Clothe]
+    let totalPrice: Double
+    var debugDescription: String {
+        "Clothes = \(clothes) Price = \(totalPrice)"
+    }
+}
+
+func buyWholeEnsemble() async throws -> Ensemble {
+    async let socks = await buySocks()
+    async let shirt = await buyShirt()
+    async let trousers = await buyTrousers()
+    let ensemble = Ensemble(clothes: await [try socks, try shirt, try trousers], 
+                            totalPrice: 200)
+    
+    return ensemble
+}
