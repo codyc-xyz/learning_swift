@@ -60,3 +60,32 @@ func buyWholeEnsemble() async throws -> Ensemble {
     
     return ensemble
 }
+
+Task {
+    if let ensemble = try? await buyWholeEnsemble() {
+        print(ensemble)
+    }
+    else {
+        print("There was an error")
+    }
+}
+
+func getFullName(
+    delay: Duration,
+    calculator: () async -> String
+) async -> String {
+    try? await Task.sleep(for: delay)
+    return await calculator()
+}
+
+func fullName() async -> String {
+    return "Foo Bar"
+}
+
+Task {
+    await getFullName(delay: .seconds(1)
+        ) {
+        async let name = fullName()
+        return await name
+    }
+}
