@@ -25,3 +25,17 @@ func + (
 
 // now the below works
 let fullName = firstName + lastName
+
+let lowercaseName = "foo bar"
+// the below '^' will not work until we custom implement the prefix unary operator
+// let uppercaseName = ^lowercaseName
+
+prefix operator ^
+prefix func ^ (
+    value: String
+) -> String {
+    return value.uppercased()
+}
+
+// now the below works
+let uppercaseName = ^lowercaseName
