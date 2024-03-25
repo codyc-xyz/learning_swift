@@ -60,7 +60,7 @@ struct Person {
 }
 
 struct Family {
-    let members: [Person]
+    var members: [Person]
 }
 
 let mom = Person(name: "Mom")
@@ -79,3 +79,18 @@ func + (
 
 // now the below works
 let family = dad + mom
+
+// the below will not work because one side is a Family object and one side is a Person object
+// let familyWithSon = family + son
+
+func + (
+    lhs: Family,
+    rhs: Person
+) -> Family {
+    var newFamily = lhs
+    newFamily.members.append(rhs)
+    return newFamily
+}
+
+// now the below works
+let familyWithSon = family + son
