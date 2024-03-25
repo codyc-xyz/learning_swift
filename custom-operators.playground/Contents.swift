@@ -39,3 +39,16 @@ prefix func ^ (
 
 // now the below works
 let uppercaseName = ^lowercaseName
+
+// the below will not work until we implement the custom postfix unary operator
+// let withStars = lowercaseName*
+
+postfix operator *
+postfix func * (
+    value: String
+) -> String {
+    return "*** \(value) ***"
+}
+
+// now the below works
+let withStars = lowercaseName*
